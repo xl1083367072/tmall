@@ -69,7 +69,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 //    查找还没有生成订单的订单项,即立即购买或者购物车中的订单项
     @Override
     public List<OrderItem> findByUser(User user) {
-        return orderItemDao.findByOrUserAndOrderIsNull(user);
+        return orderItemDao.findByUserAndOrderIsNull(user);
     }
 
     @Override
@@ -80,5 +80,15 @@ public class OrderItemServiceImpl implements OrderItemService {
     @Override
     public void save(OrderItem orderItem) {
         orderItemDao.save(orderItem);
+    }
+
+    @Override
+    public OrderItem findById(int id) {
+        return orderItemDao.getOne(id);
+    }
+
+    @Override
+    public OrderItem findByUserAndAndProduct(User user, Product product) {
+        return orderItemDao.findByUserAndAndProduct(user,product);
     }
 }

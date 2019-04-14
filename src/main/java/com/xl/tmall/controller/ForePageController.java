@@ -67,4 +67,10 @@ public class ForePageController {
         return "fore/buy";
     }
 
+//    购物车页面
+    @GetMapping("/cart")
+    public String cart(){
+        return "fore/cart";
+    }
+
 }

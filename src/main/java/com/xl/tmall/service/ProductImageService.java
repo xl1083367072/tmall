@@ -1,5 +1,6 @@
 package com.xl.tmall.service;
 
+import com.xl.tmall.pojo.OrderItem;
 import com.xl.tmall.pojo.Product;
 import com.xl.tmall.pojo.ProductImage;
 
@@ -26,5 +27,7 @@ public interface ProductImageService {
     void setFirstImage2Product(Product product);
 //  设置多个商品的代表图片
     void setFirstImage2Products(List<Product> products);
+
+    void setFirstImage2OrderItems(List<OrderItem> orderItems);
 
 }

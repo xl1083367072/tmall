@@ -1,6 +1,7 @@
 package com.xl.tmall.serviceImpl;
 
 import com.xl.tmall.dao.ProductImageDao;
+import com.xl.tmall.pojo.OrderItem;
 import com.xl.tmall.pojo.Product;
 import com.xl.tmall.pojo.ProductImage;
 import com.xl.tmall.service.ProductImageService;
@@ -59,6 +60,14 @@ public class ProductImageServiceImpl implements ProductImageService {
     public void setFirstImage2Products(List<Product> products) {
         for (Product product:products){
             setFirstImage2Product(product);
+        }
+    }
+
+//    为每个订单项的商品设置主图
+    @Override
+    public void setFirstImage2OrderItems(List<OrderItem> orderItems) {
+        for (OrderItem orderItem:orderItems){
+            setFirstImage2Product(orderItem.getProduct());
         }
     }
 }

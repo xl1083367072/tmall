@@ -25,4 +25,8 @@ public interface OrderItemService {
 
     void save(OrderItem orderItem);
 
+    OrderItem findById(int id);
+
+    OrderItem findByUserAndAndProduct(User user,Product product);
+
 }

@@ -11,5 +11,6 @@ import java.util.List;
 public interface OrderItemDao extends JpaRepository<OrderItem,Integer> {
     List<OrderItem> findByOrderOrderByIdDesc(Order order);
     List<OrderItem> findByProduct(Product product);
-    List<OrderItem> findByOrUserAndOrderIsNull(User user);
+    List<OrderItem> findByUserAndOrderIsNull(User user);
+    OrderItem findByUserAndAndProduct(User user,Product product);
 }

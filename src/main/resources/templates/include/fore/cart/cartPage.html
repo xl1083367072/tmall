@@ -1,0 +1,298 @@
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var data = {
+                url:"foreCart",
+                orderItems:[]
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    this.load();
+                },
+                methods:{
+                    load:function () {
+                        var url = this.url;
+                        axios.get(url).then(function (response) {
+                            vue.orderItems = response.data;
+                            //这个函数不能少,等到页面元素渲染完成后再加监听
+                            vue.$nextTick(function () {
+                                linkDefaultActions();
+                                cartPageRegisterListeners();
+                            })
+                        });
+                    }
+                }
+            });
+        })
+        var deleteOrderItem = false;
+        var deleteOrderItemId = 0;
+        function cartPageRegisterListeners() {
+            //给删除链接加单击事件
+            $("a.deleteOrderItem").click(function () {
+                deleteOrderItem = false;
+                //取删除的订单项id
+                var oiid = $(this).attr("oiid");
+                deleteOrderItemId = oiid;
+                //显示模态框
+                $("#deleteConfirmModal").modal("show");
+            });
+            //给模态框确认按钮加单击事件
+            $("button.deleteConfirmButton").click(function () {
+                deleteOrderItem = true;
+                $("#deleteConfirmModal").modal("hide");
+            });
+            //给模态框加事件处理函数,hidden.bs.modal是当弹出的模态框关闭时触发的回调函数
+            $("#deleteConfirmModal").on("hidden.bs.modal", function (e) {
+                //当点击的是确认时删除
+                if (deleteOrderItem) {
+                    var url = "foreDeleteOrderItem?oiid=" + deleteOrderItemId;
+                    axios.get(url).then(function (response) {
+                        if (response.data.code == 0) {
+                            //将对应订单项隐藏
+                            $("tr.cartProductItemTR[oiid=" + deleteOrderItemId + "]").hide();
+                        } else {
+                            location.href = "login";
+                        }
+                    });
+                }
+            })
+            //给选择框图片加单击事件
+            $("img.cartProductItemIfSelected").click(function () {
+                var selectit = $(this).attr("selectit");
+                //切换成未选中或选中图片,改变颜色,改变选中状态
+                if (selectit == "true") {
+                    $(this).attr("selectit", "false");
+                    $(this).attr("src", "img/site/cartNotSelected.png");
+                    $(this).parents("tr.cartProductItemTR").css("background-color", "#fff");
+                } else {
+                    $(this).attr("selectit", "true");
+                    $(this).attr("src", "img/site/cartSelected.png");
+                    $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
+                }
+                changeSelect();
+                changeCreateOrderButton();
+                totalPriceAndNumber();
+            });
+            //    给全选框图片加单击事件
+            $("img.selectAllItem").click(function () {
+                var selectit = $(this).attr("selectit");
+                //改变全选框图片为相反的状态,把订单项的状态也改变
+                if (selectit == "true") {
+                    $("img.selectAllItem").attr("selectit", "false");
+                    $("img.selectAllItem").attr("src", "img/site/cartNotSelected.png");
+                    $(".cartProductItemIfSelected").each(function () {
+                        $(this).attr("selectit", "false");
+                        $(this).attr("src", "img/site/cartNotSelected.png");
+                        $(this).parents("tr.cartProductItemTR").css("background-color", "#fff");
+                    });
+                } else {
+                    $("img.selectAllItem").attr("selectit", "true");
+                    $("img.selectAllItem").attr("src", "img/site/cartSelected.png");
+                    $(".cartProductItemIfSelected").each(function () {
+                        $(this).attr("selectit", "true");
+                        $(this).attr("src", "img/site/cartSelected.png");
+                        $(this).parents("tr.cartProductItemTR").css("background-color", "#FFF8E1");
+                    });
+                }
+                changeCreateOrderButton();
+                totalPriceAndNumber();
+            })
+            //给数量框加键盘事件
+            $(".orderItemNumberSetting").keyup(function () {
+                //取数量变化的商品id,库存和价格
+                var pid = $(this).attr("pid");
+                var stock = $("span.orderItemStock[pid=" + pid + "]").text();
+                var promotePrice = $("span.orderItemPromotePrice[pid=" + pid + "]").text();
+                var num = $(this).val();
+                num = parseInt(num);
+                if (isNaN(num))
+                    num = 1;
+                if (num <= 0)
+                    num = 1;
+                if (num > stock)
+                    num = stock;
+                orderItemPrice(pid,num,promotePrice);
+            });
+            //给数量加减按钮加单击事件,改变商品数量
+            $(".numberPlus").click(function () {
+                var pid = $(this).attr("pid");
+                var stock = $("span.orderItemStock[pid=" + pid + "]").text();
+                var promotePrice = $("span.orderItemPromotePrice[pid=" + pid + "]").text();
+                var num = $("input.orderItemNumberSetting[pid=" + pid + "]").val();
+                num++;
+                if (num > stock)
+                    num = stock;
+                orderItemPrice(pid,num,promotePrice);
+
+            });
+            $(".numberMinus").click(function () {
+                var pid = $(this).attr("pid");
+                var stock = $("span.orderItemStock[pid=" + pid + "]").text();
+                var promotePrice = $("span.orderItemPromotePrice[pid=" + pid + "]").text();
+                var num = $("input.orderItemNumberSetting[pid=" + pid + "]").val();
+                num--;
+                if (num <= 0)
+                    num = 1;
+                orderItemPrice(pid,num,promotePrice);
+            });
+            //给结算按钮加单击事件
+            $("button.createOrderButton").click(function () {
+                //结算时,取每个选中的商品id组成数组提交
+                $("img.cartProductItemIfSelected").each(function () {
+                    var params = "";
+                    if ($(this).attr("selectit") == "true") {
+                        var oiid = $(this).attr("oiid");
+                        params += "&oiid=" + oiid;
+                    }
+                });
+                params = params.substring(1);
+                location.href = "buy?" + params;
+            });
+        }
+            //改变按钮状态函数
+            function changeCreateOrderButton() {
+                //初始状态没有一个选中
+                var status = false;
+                //遍历所有商品,若有一个是选中的,则改变按钮状态变为可点击,改变颜色
+                $("img.cartProductItemIfSelected").each(function () {
+                    if($(this).attr("selectit")=="true"){
+                        status = true;
+                    }
+                });
+                if(status){
+                    $("button.createOrderButton").css("background-color","#C40000");
+                    $("button.createOrderButton").removeAttr("disabled");
+                }else {
+                    $("button.createOrderButton").css("background-color","#AAAAAA");
+                    $("button.createOrderButton").attr("disabled","disabled");
+                }
+            }
+            //当一个商品被选中时,判断当前商品是不是都被选中了,改变状态
+            function changeSelect() {
+                //初始状态都选中
+                var status = true;
+                //有一个没选中就不是都选中
+                $("img.cartProductItemIfSelected").each(function () {
+                    if($(this).attr("selectit")=="false"){
+                        status = false;
+                    }
+                });
+                if(status){
+                    $("img.selectAllItem").attr("selectit", "true");
+                    $("img.selectAllItem").attr("src", "img/site/cartSelected.png");
+                }else {
+                    $("img.selectAllItem").attr("selectit", "false");
+                    $("img.selectAllItem").attr("src", "img/site/cartNotSelected.png");
+                }
+            }
+            //计算购物车商品总价和总数
+            function totalPriceAndNumber() {
+                var totalPrice = 0;
+                var totalNumber = 0;
+                //循环所有选中的订单项
+                $("img.cartProductItemIfSelected[selectit='true']").each(function () {
+                    var oiid = $(this).attr("oiid");
+                    //取每个订单项中的商品总价,去掉,和￥,相加计算总价
+                    var orderItemPrice = $("span.cartProductItemSmallSumPrice[oiid="+oiid+"]").text();
+                    orderItemPrice = orderItemPrice.replace(/,/g,"");
+                    orderItemPrice = orderItemPrice.replace(/￥/g,"");
+                    totalPrice += new Number(orderItemPrice);
+                    //将每个订单项的商品数量相加计算总数
+                    var num = $("input.orderItemNumberSetting[oiid="+oiid+"]").val();
+                    totalNumber += new Number(num);
+                });
+                //改变总数总价地方的值
+                $("span.cartTitlePrice").html("￥"+formatMoney(totalPrice));
+                $("span.cartSumPrice").html("￥"+formatMoney(totalPrice));
+                $("span.cartSumNumber").html(totalNumber);
+            }
+            // 对一个订单项中商品数量加减时,改变对应项的商品总价
+            function orderItemPrice(pid,num,price) {
+                $("input.orderItemNumberSetting[pid="+pid+"]").val(num);
+                var orderItemPrice = formatMoney(num*price);
+                $(".cartProductItemSmallSumPrice[pid="+pid+"]").html("￥"+orderItemPrice);
+                totalPriceAndNumber();
+                //将数据库中对应数量也作出相应改变
+                var url = "foreChangeOrderIetm?pid="+pid+"&num="+num;
+                axios.get(url).then(function (response) {
+                    if(response.data.code!=0){
+                        location.href = "login";
+                    }
+                })
+            }
+    </script>
+    <title>购物车</title>
+    <dvi class="cartDiv">
+        <div class="cartTitle pull-right">
+            <span>已选商品(不含运费)</span>
+            <span class="cartTitlePrice">￥0.00</span>
+            <button class="createOrderButton" disabled="disabled">结算</button>
+        </div>
+        <div class="cartProductList">
+            <table class="cartProductTable">
+                <thead>
+                    <tr>
+                        <th class="selectAndImage">
+                            <img src="img/site/cartNotSelected.png" selectit="false" class="selectAllItem">全选
+                        </th>
+                        <th>商品信息</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th width="120px">金额</th>
+                        <th class="operation">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="cartProductItemTR" v-for="oi in orderItems" :oiid="oi.id">
+                        <td>
+                            <img src="img/site/cartNotSelected.png" selectit="false" class="cartProductItemIfSelected" :oiid="oi.id">
+                            <a style="display:none" href="#nowhere"><img src="img/site/cartSelected.png"></a>
+                            <img class="cartProductImg" :src="'img/productSingle_middle/'+oi.product.firstProductImage.id+'.jpg'">
+                        </td>
+                        <td>
+                            <div class="cartProductLinkOutDiv">
+                                <a :href="'product?pid='+oi.product.id" class="cartProductLink">{{oi.product.name}}</a>
+                                <div class="cartProductLinkInnerDiv">
+                                    <img src="img/site/creditcard.png" title="支持银行卡">
+                                    <img src="img/site/7day.png" title="7天无理由退换货">
+                                    <img src="img/site/promise.png" title="品质联盟保证">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="cartProductItemOringalPrice">￥{{oi.product.originalPrice | formatMoneyFilter}}</span>
+                            <span class="cartProductItemPromotionPrice">￥{{oi.product.promotePrice | formatMoneyFilter}}</span>
+                        </td>
+                        <td>
+                            <div class="cartProductChangeNumberDiv">
+                                <span class="hidden orderItemStock" :pid="oi.product.id">{{oi.product.stock}}</span>
+                                <span class="hidden orderItemPromotePrice" :pid="oi.product.id">{{oi.product.promotePrice}}</span>
+                                <a class="numberMinus" href="#nowhere" :pid="oi.product.id">-</a>
+                                <input :value="oi.number" class="orderItemNumberSetting" autocomplete="off" :pid="oi.product.id" :oiid="oi.id">
+                                <a class="numberPlus" href="#nowhere" :pid="oi.product.id">+</a>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="cartProductItemSmallSumPrice" :pid="oi.product.id" :oiid="oi.id">{{oi.product.promotePrice*oi.number | formatMoneyFilter}}</span>
+                        </td>
+                        <td>
+                            <a class="deleteOrderItem" :oiid="oi.id" href="#nowhere">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="cartFoot">
+            <img src="img/site/cartNotSelected.png" selectit="false" class="selectAllItem">
+            <span>全选</span>
+            <div class="pull-right">
+                <span>已选商品<span class="cartSumNumber">0</span>件</span>
+                <span>合计(不含运费):</span>
+                <span class="cartSumPrice">￥0.00</span>
+                <button type="submit" class="createOrderButton" disabled="disabled">结算</button>
+            </div>
+        </div>
+    </dvi>
+</div>

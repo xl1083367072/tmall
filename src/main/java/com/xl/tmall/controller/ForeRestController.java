@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpSession;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 public class ForeRestController {
@@ -61,7 +58,7 @@ public class ForeRestController {
         User u = userService.findByNameAndPassword(name, user.getPassword());
         if(u==null)
             return Result.fail("账号或密码错误");
-        session.setAttribute("user",user);
+        session.setAttribute("user",u);
         return Result.success();
     }
 
@@ -140,7 +137,7 @@ public class ForeRestController {
     }
 
     @GetMapping("/foreBuyOne")
-    public int buyone(int pid,int num,HttpSession session){
+    public Object buyone(int pid,int num,HttpSession session){
         return buyAndAddCart(pid,num,session);
     }
 
@@ -174,4 +171,62 @@ public class ForeRestController {
         return oiid;
     }
 
+//    立即购买
+    @GetMapping("/foreBuy")
+    public Result foreBuy(String[] oiid,HttpSession session){
+//        立即购买有一个订单项,购物车中购买有多个订单项,所以统一用数组来接收
+        List<OrderItem> orderItems = new ArrayList<>();
+//        该订单商品总额
+        int totalPrice = 0;
+//        查出来每个订单项,算出总额并将订单项加入集合中
+        for (String s : oiid){
+            int id = Integer.parseInt(s);
+            OrderItem orderItem = orderItemService.findById(id);
+            totalPrice += orderItem.getNumber()*orderItem.getProduct().getPromotePrice();
+            orderItems.add(orderItem);
+        }
+//        给订单商品设置图片
+        productImageService.setFirstImage2OrderItems(orderItems);
+        Map<String,Object> map = new HashMap<>();
+        map.put("orderItems",orderItems);
+        map.put("totalPrice",totalPrice);
+        return Result.success(map);
+    }
+
+//    加入购物车
+    @GetMapping("/foreAddCart")
+    public Result foreAddCart(int pid,int num,HttpSession session){
+        buyAndAddCart(pid, num, session);
+        return Result.success();
+    }
+
+//    显示购物车内容
+    @GetMapping("/foreCart")
+    public List<OrderItem> foreCart(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        List<OrderItem> orderItems = orderItemService.findByUser(user);
+        productImageService.setFirstImage2OrderItems(orderItems);
+        return orderItems;
+    }
+
+//    删除订单项
+    @GetMapping("/foreDeleteOrderItem")
+    public Result foreDeleteOrderItem(int oiid){
+        return Result.success();
+    }
+
+//    更新订单项商品数量
+    @GetMapping("/foreChangeOrderIetm")
+    public Result foreChangeOrderIetm(int pid,int num,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if(user==null){
+            return Result.fail("未登录状态");
+        }
+        Product product = new Product();
+        product.setId(pid);
+        OrderItem orderItem = orderItemService.findByUserAndAndProduct(user, product);
+        orderItem.setNumber(num);
+        orderItemService.update(orderItem);
+        return Result.success();
+    }
 }

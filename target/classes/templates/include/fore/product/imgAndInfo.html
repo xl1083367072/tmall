@@ -67,7 +67,7 @@
                   if(response.data.code==0){
                       var pid = vue.product.id;
                       var num = $(".productNumberSetting").val();
-                      var url = "foreBuyOne?pid"+pid+"&num="+num;
+                      var url = "foreBuyOne?pid="+pid+"&num="+num;
                       axios.get(url).then(function (response) {
                           var oiid = response.data;
                           location.href = "buy?oiid="+oiid;

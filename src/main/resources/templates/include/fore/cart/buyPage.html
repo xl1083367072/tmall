@@ -18,7 +18,7 @@
                 methods:{
                     //显示订单项内容
                     load:function () {
-                        var url = this.url+"/"+oiid;
+                        var url = this.url+"?oiid="+oiid;
                         axios.get(url).then(function (response) {
                             var result = response.data;
                             vue.totalPrice = result.data.totalPrice;
@@ -96,7 +96,7 @@
                     </tr>
                 </thead>
                 <tbody class="productListTableTbody">
-                    <tr v-for="oi in orderItems" class="orderItemTR">
+                    <tr v-for="oi,index in orderItems" class="orderItemTR">
                         <td class="orderItemFirstTD">
                             <img :src="'img/productSingle_middle/'+oi.product.firstProductImage.id+'.jpg'" class="orderItemImg" >
                         </td>
@@ -135,7 +135,7 @@
                 <span><img src="img/site/leaveMessage.png" class="leaveMessageImg"></span>
                 <span class="leaveMessageTextareaSpan">
                     <textarea v-model="order.userMessage" class="leaveMessageTextarea"></textarea>
-                    <span>最多可以输入200字符</span>
+                    <div><span>最多可以输入200字符</span></div>
                 </span>
             </div>
             <span class="pull-right">
