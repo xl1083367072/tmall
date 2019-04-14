@@ -1,0 +1,61 @@
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var pid = getUrl("pid");
+            var data = {
+                url:'foreProduct',
+                product:'',
+                category:null,
+                firstProductImage:null,
+                propertyValues:[],
+                reviews:[],
+                showDetail:true,
+                showReview:false,
+                user:{name:'',password:''}
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    linkDefaultActions();
+                    this.load();
+                },
+                methods:{
+                    //加载页面信息
+                    load:function () {
+                        var url = this.url+"/"+pid;
+                        axios.get(url).then(function (response) {
+                            var result = response.data;
+                            vue.product = result.data.product;
+                            vue.propertyValues = result.data.propertyValues;
+                            vue.reviews = result.data.reviews;
+                            vue.category = vue.product.category;
+                            vue.firstProductImage = vue.product.firstProductImage;
+                            vue.$nextTick(function () {
+                                imgAndInfoPageRegisterListeners(vue);
+                            });
+                        });
+                    },
+                    //在查看商品详情和查看商品评价之间转换
+                    turn2Detail:function () {
+                        this.showDetail = true;
+                        this.showReview = false;
+                    },
+                    turn2Review:function () {
+                        this.showDetail = false;
+                        this.showReview = true;
+                    }
+                }
+            });
+        })
+    </script>
+    <title>商城官网 {{product.name}}</title>
+    <div class="categoryPictureInProductPageDiv">
+        <img v-if="category!=null" :src="'img/category/'+category.id+'.jpg'" class="categoryPictureInProductPage">
+    </div>
+    <div class="productPageDiv">
+        <div th:replace="include/fore/product/imgAndInfo::html"></div>
+        <div th:replace="include/fore/product/productDetail::html"></div>
+        <div th:replace="include/fore/product/productReview::html"></div>
+    </div>
+</div>

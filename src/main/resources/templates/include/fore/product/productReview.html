@@ -1,0 +1,25 @@
+<!--商品详细信息的评价选项卡-->
+<div th:fragment="html">
+    <div class="productReviewDiv" v-show="showReview">
+        <div class="productReviewTopPart">
+            <a href="#nowhere" @click="turn2Detail" class="productReviewTopPartSelectedLink">商品详情</a>
+            <a href="#nowhere" @click="turn2Review" class="selected">累计评价<span class="productReviewTopReviewLinkNumber">{{product.reviewCount}}</span></a>
+        </div>
+        <div class="productReviewContentPart">
+            <div v-for="review in reviews" class="productReviewItem">
+                <div class="productReviewItemDesc">
+                    <div class="productReviewItemContent">
+                        {{review.content}}
+                    </div>
+                    <div class="productReviewItemDate">
+                        {{review.createDate | formatDateFilter('YYYY-MM-DD')}}
+                    </div>
+                </div>
+                <div class="productReviewItemUserInfo">
+                    {{review.user.anonymousName}}<span class="userInfoGrayPart">(匿名)</span>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </div>
+</div>

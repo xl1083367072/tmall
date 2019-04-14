@@ -1,0 +1,59 @@
+<!--分类商品排序栏-->
+<div th:fragment="html">
+    <script>
+        $(function () {
+            //输入最低价和最高价查找时触发
+            $("input.sortBarPrice").keyup(function () {
+                //取输入的价格
+                var num = $(this).val();
+                //若输入框值清空了,则全部都显示出来
+                if(num.length==0){
+                    $("div.productUnit").show();
+                    return;
+                }
+                //若输入框有值,要进行有效性判定
+                num = parseInt(num);
+                if(isNaN(num))
+                    num = 1;
+                if(num<=0)
+                    num = 1;
+                $(this).val(num);
+                //取价格区间
+                var beginPrice = $("input.beginPrice").val();
+                var endPrice = $("input.endPrice").val();
+                if(!isNaN(beginPrice)&&!isNaN(endPrice)){
+                    //先将所有商品隐藏
+                    $("div.productUnit").hide();
+                    //然后循环操作每个商品
+                    $("div.productUnit").each(function () {
+                        //取商品上的价格
+                        var price = $(this).attr("price");
+                        price = new Number(price);
+                        //若是在价格区间中,则将这个商品显示出来
+                        if(price>=beginPrice&&price<=endPrice){
+                            $(this).show();
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+    <div class="categorySortBar">
+        <table class="categorySortBarTable categorySortTable">
+            <tr>
+                <td :class="{'grayColumn':(sort==null || sort=='all')}"><a :href="'?cid='+category.id+'&sort=all'">综合<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+                <td :class="{'grayColumn':(sort==null || sort=='date')}"><a :href="'?cid='+category.id+'&sort=date'">新品<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+                <td :class="{'grayColumn':(sort==null || sort=='price')}"><a :href="'?cid='+category.id+'&sort=price'">价格<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+                <td :class="{'grayColumn':(sort==null || sort=='review')}"><a :href="'?cid='+category.id+'&sort=review'">人气<span class="glyphicon glyphicon-arrow-down"></span></a></td>
+                <td :class="{'grayColumn':(sort==null || sort=='sale')}"><a :href="'?cid='+category.id+'&sort=sale'">销量<span class="glyphicon glyphicon-resize-vertical"></span></a></td>
+            </tr>
+        </table>
+        <table class="categorySortBarTable">
+            <tr>
+                <td><input type="text" placeholder="最低价" class="sortBarPrice beginPrice"></td>
+                <td class="grayColumn priceMiddleColumn">-</td>
+                <td><input type="text" placeholder="最高价" class="sortBarPrice endPrice"></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/admin/adminHeader::html('编辑属性值')"></head>
+<body>
+    <div th:replace="include/admin/adminMenu::html"></div>
+    <script>
+        $(function () {
+            var pid = getUrl("pid");
+            var data = {
+                url:"propertyValues",
+                beans:[],
+                product:'',
+                category:''
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    this.list();
+                    this.getProduct(pid);
+                },
+                methods:{
+                    list:function () {
+                        var url = "products/"+pid+"/"+this.url;
+                        axios.get(url).then(function (response) {
+                            vue.beans = response.data;
+                        });
+                    },
+                    getProduct:function (pid) {
+                        var url = "products/"+pid;
+                        axios.get(url).then(function (response) {
+                            vue.product = response.data;
+                            vue.category = vue.product.category;
+                        });
+                    },
+                    update:function (bean) {
+                        var url = this.url;
+                        $("#pvid"+bean.id).css("border","2px solid yellow");
+                        axios.put(url,bean).then(function (response) {
+                           if(bean.id==response.data.id)
+                               $("#pvid"+bean.id).css("border","2px solid green");
+                           else
+                               $("#pvid"+bean.id).css("border","2px solid red");
+                        });
+                    }
+                }
+            })
+        })
+    </script>
+    <div id="workingArea">
+        <ol class="breadcrumb">
+            <li><a href="adminCategoryList">所有分类</a></li>
+            <li><a :href="'adminProductList?cid='+category.id">{{category.name}}</a></li>
+            <li class="active">{{product.name}}</li>
+            <li class="active">商品属性管理</li>
+        </ol>
+        <div class="editPVDiv">
+            <div v-for="bean in beans" class="eachPV">
+                <span class="pvName">{{bean.property.name}}</span>
+                <span class="pvValue"><input class="pvValue" type="text" v-model="bean.value" :id="'pvid'+bean.id" @keyup.enter="update(bean)"></span>
+            </div>
+        </div>
+    </div>
+    <div th:replace="include/admin/adminFooter::html"></div>
+</body>
+</html>

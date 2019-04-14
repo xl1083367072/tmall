@@ -1,0 +1,112 @@
+<!--主业主体页面,包含导航栏,分类列表,推荐商品,每个分类显示的五个商品-->
+<div th:fragment="html">
+    <script>
+        <!--鼠标选中某个分类时,控制该分类的显示效果-->
+        function showProductsAsideCategorys(cid) {
+            //改变该分类背景色
+            $("div.eachCategory[cid="+cid+"]").css("background-color","white");
+            //改变分类名称颜色
+            $("div.eachCategory[cid="+cid+"] a").css("color","#87CEFA");
+            //在右侧显示该分类下的推荐商品
+            $("div.productsAsideCategorys[cid="+cid+"]").show();
+        }
+        //鼠标没有选中某个分类时,该分类的显示效果
+        function hideProductsAsideCategorys(cid) {
+            //该分类背景色
+            $("div.eachCategory[cid="+cid+"]").css("background-color","#e2e2e3");
+            //该分类名称颜色
+            $("div.eachCategory[cid="+cid+"] a").css("color","#000");
+            //在右侧不显示该分类下的推荐商品
+            $("div.productsAsideCategorys[cid="+cid+"]").hide();
+        }
+        //给渲染出来的页面元素加的监听器
+        function homePageRegisterListeners() {
+            //给所有的分类加监听器,鼠标放上去后,调用showProductsAsideCategorys
+            $("div.eachCategory").mouseenter(function () {
+                var cid = $(this).attr("cid");
+                showProductsAsideCategorys(cid)
+            });
+            //给所有的分类加监听器,鼠标离开后,hideProductsAsideCategorys
+            $("div.eachCategory").mouseleave(function () {
+                var cid = $(this).attr("cid");
+                hideProductsAsideCategorys(cid);
+            });
+            //给分类右侧的推荐商品加监听器,鼠标放上去后,调用showProductsAsideCategorys
+            $("div.productsAsideCategorys").mouseenter(function () {
+                var cid = $(this).attr("cid");
+                showProductsAsideCategorys(cid);
+            });
+            //给分类右侧的推荐商品加监听器,鼠标离开后,hideProductsAsideCategorys
+            $("div.productsAsideCategorys").mouseleave(function () {
+                var cid = $(this).attr("cid");
+                hideProductsAsideCategorys(cid);
+            });
+            //给导航栏推荐分类加监听器,鼠标放上去时
+            $("div.rightMenu span").mouseenter(function () {
+                //取该分类元素的各个坐标,将猫耳朵图片放到这个元素合适的位置
+                var left = $(this).position().left;
+                var top = $(this).position().top;
+                var width = $(this).css("width");
+                var destLeft = parseInt(left)+parseInt(width)/2;
+                $("img#catear").css("left",destLeft);
+                $("img#catear").css("top",top-20);
+                $("img#catear").fadeIn(500);
+            });
+            //给导航栏推荐分类加监听器,鼠标离开时隐藏猫耳朵图片
+            $("div.rightMenu span").mouseleave(function () {
+                $("img#catear").hide();
+            });
+            // 修改轮播图及旁边元素相关位置
+            var left = $("div.carousel-of-product").offset().left;
+            $("div.categoryMenu").css("left",left-20);
+            $("div.categoryWithCarousel div.head").css("margin-left",left);
+            $("div.productsAsideCategorys").css("left",left-20);
+            //将分类右侧推荐商品以20%概率随机变色
+            $("div.productsAsideCategorys div.row a").each(function () {
+                var v = Math.round(Math.random()*6);
+                if(v==1)
+                    $(this).css("color","#87CEFA");
+            });
+        }
+        $(function () {
+            var data = {
+                url:"forehome",
+                categories:[]
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    linkDefaultActions();
+                    this.load();
+                },
+                methods:{
+                    load:function () {
+                        var url = this.url;
+                        axios.get(url).then(function (response) {
+                            vue.categories = response.data;
+                            //当页面渲染结束后执行,加监听器
+                            vue.$nextTick(function () {
+                                homePageRegisterListeners();
+                            });
+                        });
+                    }
+                },
+                //商品小标题过滤器
+                filters:{
+                    subTitleFilter:function (value) {
+                        if(!value)
+                            return '';
+                        //将小标题按空格切分,取切分后的第一个元素
+                        return value.split(" ")[0];
+                    }
+                }
+            })
+        })
+    </script>
+    <title>商城官网</title>
+    <div class="homepageDiv">
+        <div th:replace="include/fore/home/categoryAndcarousel::html"></div>
+        <div th:replace="include/fore/home/homepageCategoryProducts::html"></div>
+    </div>
+</div>

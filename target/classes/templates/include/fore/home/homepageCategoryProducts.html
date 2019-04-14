@@ -1,0 +1,32 @@
+<!--中间部分的每个分类选择五个商品显示-->
+<div th:fragment="html">
+    <div class="homepageCategoryProducts">
+        <!--取所有分类,循环显示每个分类的五个商品-->
+        <div v-for="c in categories" class="eachHomepageCategoryProducts">
+            <div class="left-mark"></div>
+            <span class="categoryTitle">{{c.name}}</span>
+            <br>
+            <!--取分类的所有商品,显示前五个-->
+            <div v-for="p,index in c.products" v-if="index<5" class="productItem">
+                <!--显示商品第一张图片-->
+                <a :href="'product?pid='+p.id">
+                    <img :src="'img/productSingle_middle/'+p.firstProductImage.id+'.jpg'" width="100px">
+                </a>
+                <!--显示商品名-->
+                <a :href="'product?pid='+p.id" class="productItemDescLink">
+                    <span class="productItemDesc">
+                        <!--过滤商品名-->
+                        [热销]{{p.name | subStringFilter(0,20)}}
+                    </span>
+                </a>
+                <!--显示商品价格-->
+                <span class="productPrice">
+                    <!--过滤商品价格-->
+                    {{p.promotePrice | formatMoneyFilter}}
+                </span>
+            </div>
+            <div tyle="clear:both"></div>
+        </div>
+        <img src="img/site/end.png" id="endpng" class="endpng">
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/admin/adminHeader::html('编辑属性')"></head>
+<body>
+    <div th:replace="include/admin/adminMenu::html"></div>
+    <script>
+        $(function () {
+            var data = {
+                url:"properties",
+                bean:'',
+                listUrl:'adminPropertyList',
+                category:null
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    this.get();
+                },
+                methods:{
+                    get:function () {
+                        var id = getUrl("id");
+                        var url = this.url+"/"+id;
+                        axios.get(url).then(function (response) {
+                            vue.bean = response.data;
+                            vue.category = vue.bean.category;
+                        });
+                    },
+                    update:function () {
+                        if(!checkEmpty(this.bean.name,"属性名称"))
+                            return;
+                        var url = this.url;
+                        axios.put(url,vue.bean).then(function (response) {
+                            location.href = vue.listUrl+"?cid="+vue.category.id;
+                        });
+                    }
+                }
+            })
+        })
+    </script>
+    <div id="workingArea">
+        <ol class="breadcrumb">
+            <li><a href="adminCategoryList">所有分类</a></li>
+            <li><a :href="'adminPropertyList?cid='+category.id">{{category.name}}</a></li>
+            <li class="active">属性管理</li>
+        </ol>
+        <div class="panel panel-warning editDiv">
+            <div class="panel-heading">编辑属性</div>
+            <div class="panel-body">
+                <table class="editTable">
+                    <tr>
+                        <td>属性名称:</td>
+                        <td><input type="text" v-model.trim="bean.name" @keyup.enter="update" class="form-control"></td>
+                    </tr>
+                    <tr class="submitTR">
+                        <td colspan="2" align="center">
+                            <a href="#" @click="update" class="btn btn-success">提交</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div th:replace="include/admin/adminFooter::html"></div>
+</body>
+</html>

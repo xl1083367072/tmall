@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/admin/adminHeader::html('商品图片管理')"></head>
+<body>
+    <div th:replace="include/admin/adminMenu::html"></div>
+    <script>
+        $(function () {
+            var pid = getUrl("pid");
+            var data = {
+                url:"productImages",
+                singleProductImage:[],
+                detailProductImage:[],
+                product:'',
+                category:'',
+                singleFile:null,
+                detailFile:null
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    this.listSingle();
+                    this.listDetail();
+                    this.getProduct(pid);
+                },
+                methods:{
+                    listSingle:function () {
+                        var url = "products/"+pid+"/"+this.url+"?type=single";
+                        axios.get(url).then(function (response) {
+                            vue.singleProductImage = response.data;
+                        });
+                    },
+                    listDetail:function () {
+                        var url = "products/"+pid+"/"+this.url+"?type=detail";
+                        axios.get(url).then(function (response) {
+                            vue.detailProductImage = response.data;
+                        });
+                    },
+                    getProduct:function (pid) {
+                        var url = "products/"+pid;
+                        axios.get(url).then(function (response) {
+                            vue.product = response.data;
+                            vue.category = vue.product.category;
+                        });
+                    },
+                    addSingle:function () {
+                        if(!checkEmpty(this.singleFile,"单个商品图片"))
+                            return;
+                        var url = this.url;
+                        var formdata = new FormData();
+                        formdata.append("pid",pid);
+                        formdata.append("type","single");
+                        formdata.append("file",this.singleFile);
+                        axios.post(url,formdata).then(function (response) {
+                            vue.listSingle();
+                            $("#singlePic").val("");
+                            vue.singleFile = null;
+                        });
+                    },
+                    addDetail:function () {
+                        if(!checkEmpty(this.detailFile,"细节商品图片"))
+                            return;
+                        var url = this.url;
+                        var formdata = new FormData();
+                        formdata.append("pid",pid);
+                        formdata.append("type","detail");
+                        formdata.append("file",this.detailFile);
+                        axios.post(url,formdata).then(function (response) {
+                            vue.listDetail();
+                            $("#detailPic").val("");
+                            vue.detailFile = null;
+                        });
+                    },
+                    deleteBean:function (id) {
+                        if(!checkDelete())
+                            return;
+                        var url = this.url+"/"+id;
+                        axios.delete(url).then(function (response) {
+                            vue.listSingle();
+                            vue.listDetail();
+                        });
+                    },
+                    getSingleFile:function (event) {
+                        vue.singleFile = event.target.files[0];
+                    },
+                    getDetailFile:function (event) {
+                        vue.detailFile = event.target.files[0];
+                    }
+                }
+            })
+            
+        })
+    </script>
+    <div id="workingArea">
+        <ol class="breadcrumb">
+            <li><a href="adminCategoryList">所有分类</a></li>
+            <li><a :href="'adminProductList?cid='+category.id">{{category.name}}</a></li>
+            <li class="active">{{product.name}}</li>
+            <li class="active">商品图片管理</li>
+        </ol>
+        <table class="addPictureTable" align="center">
+            <tr>
+                <td class="addPictureTableTD">
+                    <div>
+                        <div class="panel panel-warning addPictureDiv">
+                            <div class="panel-heading">添加商品<b class="text-primary">单个</b>图片</div>
+                            <div class="panel-body">
+                                <table class="addTable">
+                                    <tr>
+                                        <td>请选择本地图片 尺寸400*400最佳</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="file" @change="getSingleFile($event)" id="singlePic" name="image">
+                                        </td>
+                                    </tr>
+                                    <tr class="submitTR">
+                                        <td align="center">
+                                            <button type="submit" @click="addSingle" class="btn btn-success">提交</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover  table-condensed">
+                            <thead>
+                                <tr class="success">
+                                    <th>ID</th>
+                                    <th>单个商品图片缩略图</th>
+                                    <th>删除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="image in singleProductImage">
+                                    <td>{{image.id}}</td>
+                                    <td>
+                                        <a title="点击查看原图" :href="'img/productSingle/'+image.id+'.jpg'">
+                                            <img :src="'img/productSingle/'+image.id+'.jpg'" height="50px">
+                                        </a>
+                                    </td>
+                                    <td><a href="#" @click="deleteBean(image.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td class="addPictureTableTD">
+                    <div>
+                        <div class="panel panel-warning addPictureDiv">
+                            <div class="panel-heading">添加商品<b class="text-primary">详情</b>图片</div>
+                            <div class="panel-body">
+                                <table class="addTable">
+                                    <tr>
+                                        <td>请选择本地图片 尺寸790*790最佳</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="file" @change="getDetailFile($event)" id="detailPic" name="image">
+                                        </td>
+                                    </tr>
+                                    <tr class="submitTR">
+                                        <td align="center">
+                                            <button type="submit" @click="addDetail" class="btn btn-success">提交</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered table-hover  table-condensed">
+                            <thead>
+                                <tr class="success">
+                                    <th>ID</th>
+                                    <th>商品详情图片缩略图</th>
+                                    <th>删除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="image in detailProductImage">
+                                    <td>{{image.id}}</td>
+                                    <td>
+                                        <a title="点击查看原图" :href="'img/productDetail/'+image.id+'.jpg'">
+                                            <img :src="'img/productDetail/'+image.id+'.jpg'" height="50px">
+                                        </a>
+                                    </td>
+                                    <td><a href="#" @click="deleteBean(image.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:replace="include/admin/adminFooter::html"></div>
+</body>
+</html>

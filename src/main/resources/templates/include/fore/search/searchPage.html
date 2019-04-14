@@ -1,0 +1,35 @@
+<!--搜索业务-->
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var keyword = getUrl("keyword");
+            var data = {
+                url:"foreSearch",
+                products:[]
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    this.load();
+                },
+                methods:{
+                    load:function () {
+                        var url = this.url+"?keyword="+keyword;
+                        axios.get(url).then(function (response) {
+                            vue.products = response.data;
+                            vue.$nextTick(function () {
+                                linkDefaultActions();
+                            });
+                        });
+                    }
+                }
+            });
+        })
+    </script>
+    <div id="searchResult">
+        <div  class="searchResultDiv">
+            <div th:replace="include/fore/search/productsBySearch::html"></div>
+        </div>
+    </div>
+</div>

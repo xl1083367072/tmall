@@ -1,0 +1,15 @@
+<!--首页分类菜单旁边的商品推荐列表-->
+<div th:fragment="html">
+    <!--取分类,循环将每一个分类下的推荐商品显示-->
+    <div v-for="c in categories" :cid="c.id" class="productsAsideCategorys">
+        <!--取分类中的商品行集合,让推荐商品一行行显示,每行8个-->
+        <div v-for="ps in c.productsByRow" class="row show1">
+            <!--取每行的每个商品信息,循环显示商品的小标题-->
+            <a :href="'product?pid='+p.id" v-for="p in ps" v-if="p.subTitle.length!=0">
+                <!--过滤小标题-->
+                {{p.subTitle | subTitleFilter}}
+            </a>
+            <div class="seperator"></div>
+        </div>
+    </div>
+</div>

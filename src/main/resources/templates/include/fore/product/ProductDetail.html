@@ -1,0 +1,19 @@
+<!--商品详细信息的商品详情选项卡-->
+<div th:fragment="html">
+    <div v-show-="showDetail" class="productDetailDiv">
+        <div class="productDetailTopPart">
+            <a href="#nowhere" @click="turn2Detail" class="productDetailTopPartSelectedLink selected">商品详情</a>
+            <a href="#nowhere" @click="turn2Review" class="productDetailTopReviewLink">累计评价<span class="productDetailTopReviewLinkNumber">{{product.reviewCount}}</span></a>
+        </div>
+        <div class="productParamterPart">
+            <div class="productParamter">产品参数:</div>
+            <div class="productParamterList">
+                <span v-for="pv in propertyValues">{{pv.property.name}}:{{pv.value | subStringFilter(0,10)}}</span>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="productDetailImagesPart">
+            <img v-for="pi in product.productDetailImages" :src="'img/productDetail/'+pi.id+'.jpg'">
+        </div>
+    </div>
+</div>

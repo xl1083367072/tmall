@@ -1,0 +1,94 @@
+<!--注册主体-->
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var data = {
+                url:"foreregister",
+                result:[],
+                user:{name:'',password:'',repeatpassword:''}
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    linkDefaultActions();
+                },
+                methods:{
+                    register:function () {
+                        var url = this.url;
+                        //若用户名输入为空
+                        if(this.user.name.length==0){
+                            $("span.errorMessage").html("请输入用户名");
+                            $("div.registerErrorMessageDiv").css("visibility","visible");
+                            return;
+                        }
+                        //若密码输入为空
+                        if(this.user.password.length==0){
+                            $("span.errorMessage").html("请输入密码");
+                            $("div.registerErrorMessageDiv").css("visibility","visible");
+                            return;
+                        }
+                        //若重复密码输入为空
+                        if(this.user.repeatpassword.length==0){
+                            $("span.errorMessage").html("请输入确认密码");
+                            $("div.registerErrorMessageDiv").css("visibility","visible");
+                            return;
+                        }
+                        //若两次密码输入不一致
+                        if(this.user.password!=this.user.repeatpassword){
+                            $("span.errorMessage").html("两次密码输入不一致");
+                            $("div.registerErrorMessageDiv").css("visibility","visible");
+                            return;
+                        }
+                        axios.post(url,this.user).then(function (response) {
+                            var result = response.data;
+                            //返回结果信息,状态码为0表示成功
+                            if(result.code==0){
+                                location.href = "registerSuccess";
+                            }
+                            else{
+                                $("span.errorMessage").html(result.message);
+                                $("div.registerErrorMessageDiv").css("visibility","visible");
+                            }
+                        });
+                    }
+                }
+            });
+        })
+    </script>
+    <div class="registerDiv">
+        <div class="registerErrorMessageDiv">
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <span class="errorMessage"></span>
+            </div>
+        </div>
+        <table class="registerTable" align="center">
+            <tr>
+                <td class="registerTip registerTableLeftTD">设置会员名</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="registerTableLeftTD">登录名</td>
+                <td class="registerTableRightTD"><input type="text" v-model="user.name" placeholder="会员名称无法修改"></td>
+            </tr>
+            <tr>
+                <td class="registerTip registerTableLeftTD">设置登录密码</td>
+                <td class="registerTableRightTD">登录时验证,保护账号信息</td>
+            </tr>
+            <tr>
+                <td class="registerTableLeftTD">登录密码</td>
+                <td class="registerTableRightTD"><input type="password" v-model="user.password" placeholder="请输入密码"></td>
+            </tr>
+            <tr>
+                <td class="registerTableLeftTD">密码确认</td>
+                <td class="registerTableRightTD"><input type="password" v-model="user.repeatpassword" placeholder="请再次输入你的密码"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="registerButtonTD">
+                    <a @click="register"><button>提交</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
