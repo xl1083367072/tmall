@@ -2,32 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24b41913-9462-4fc0-88cf-f9f9d8dc767a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fore/cart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/cartPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForeRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForeRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/ProductImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/ProductImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderItemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ProductImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ProductImageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fore/buy.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fore/buy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fore/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fore/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fore/registerSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fore/registerSuccess.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/buyPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/buyPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreHeader.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreHeader.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreSearch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreTop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreTop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/product/imgAndInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/product/imgAndInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/search/simpleSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/search/simpleSearch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/cartPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/cartPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/include/fore/login/loginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/include/fore/login/loginPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/site/comformPayFlow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/site/confirmPayFlow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xl/tmall/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xl/tmall/MyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/controller/ForePageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/controller/ForePageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/controller/ForeRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/controller/ForeRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/dao/OrderItemDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/dao/OrderItemDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/dao/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/dao/OrderDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/service/OrderItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/service/OrderItemService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/service/ProductImageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/service/ProductImageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/service/OrderService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/serviceImpl/OrderItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/serviceImpl/OrderItemServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/serviceImpl/ProductImageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/serviceImpl/ProductImageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xl/tmall/serviceImpl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xl/tmall/serviceImpl/OrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fore/buy.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fore/buy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fore/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fore/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fore/registerSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fore/registerSuccess.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/include/fore/cart/buyPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/include/fore/cart/buyPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/include/fore/foreHeader.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/include/fore/foreHeader.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/include/fore/product/imgAndInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/include/fore/product/imgAndInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/include/fore/search/simpleSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/include/fore/search/simpleSearch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/include/fore/cart/cartPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/include/fore/cart/cartPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/include/fore/login/loginPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/include/fore/login/loginPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/xl/tmall/MyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/xl/tmall/MyTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,8 +65,8 @@
     <session id="-1420044476">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
-          <entry key="project.open.time.1" value="7" />
+          <entry key="project.closed" value="16" />
+          <entry key="project.open.time.1" value="8" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -70,7 +74,7 @@
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -78,11 +82,11 @@
           <entry key="JpaRepository" value="1" />
           <entry key="class" value="6" />
           <entry key="css" value="6" />
-          <entry key="html" value="253" />
-          <entry key="java" value="366" />
+          <entry key="html" value="294" />
+          <entry key="java" value="417" />
           <entry key="jpg" value="12" />
           <entry key="kt" value="1" />
-          <entry key="png" value="2" />
+          <entry key="png" value="7" />
           <entry key="properties" value="8" />
           <entry key="xml" value="5" />
         </counts>
@@ -91,9 +95,9 @@
         <counts>
           <entry key="CLASS" value="6" />
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="253" />
-          <entry key="Image" value="14" />
-          <entry key="JAVA" value="366" />
+          <entry key="HTML" value="294" />
+          <entry key="Image" value="19" />
+          <entry key="JAVA" value="417" />
           <entry key="Kotlin" value="1" />
           <entry key="Properties" value="8" />
           <entry key="UML" value="1" />
@@ -103,16 +107,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="html" value="39622" />
-          <entry key="java" value="24443" />
+          <entry key="html" value="45840" />
+          <entry key="java" value="27694" />
           <entry key="properties" value="534" />
           <entry key="xml" value="58" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="39622" />
-          <entry key="JAVA" value="24443" />
+          <entry key="HTML" value="45840" />
+          <entry key="JAVA" value="27694" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="Properties" value="534" />
           <entry key="XML" value="58" />
@@ -121,15 +125,15 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
         <option value="Kotlin File" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -141,6 +145,7 @@
       <find>gouwuquan</find>
       <find>index</find>
       <find>url</find>
+      <find>waitPay</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,34 +154,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Order.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/OrderItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/ProductImage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Property.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/PropertyValue.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Review.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/category/productsOfCategory.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/category/categoryPage.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/category/sortBar.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/simpleSearch.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/search.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/searchPage.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/product.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/login.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/register.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/login/loginPage.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/registerSuccess.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/search/productsBySearch.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/search.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/ProductDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/ProductService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/PropertyValueServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/PropertyServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ReviewServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/search/searchPage.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/buy/buyPage.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/login/modalLogin.html" />
@@ -184,22 +166,45 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ProductImageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/product/imgAndInfo.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreHeader.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/buyPage.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/buy.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/deleteOrderItemModal.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/cart.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForePageController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/cartPage.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderItemDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderItemService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderItemServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForeRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/interceptor/LoginInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/interceptor/OtherInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/config/WebMvcConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreSearch.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/foreTop.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/search/simpleSearch.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderItemService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderItemServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/apliPayPage.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/buy.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/cart.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/aliPay.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/payed.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/payed.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/cartPage.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/buyPage.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/registerSuccess.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/login/loginPage.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/aliPayPage.html" />
+        <option value="$PROJECT_DIR$/src/test/java/com/xl/tmall/MyTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/payedPage.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/deleteOrderModal.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/bought.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/confirm.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/orderConfirmed.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/confirmed.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/confirmedPage.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fore/review.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/boughtPage.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/confirmPage.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForePageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForeRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/reviewPage.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ReviewServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -292,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -354,7 +360,7 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="xl" type="462c0819:PsiDirectoryNode" />
               <item name="tmall" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tmall" type="b2602c69:ProjectViewProjectNode" />
@@ -377,6 +383,17 @@
               <item name="xl" type="462c0819:PsiDirectoryNode" />
               <item name="tmall" type="462c0819:PsiDirectoryNode" />
               <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tmall" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xl" type="462c0819:PsiDirectoryNode" />
+              <item name="tmall" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tmall" type="b2602c69:ProjectViewProjectNode" />
@@ -496,13 +513,23 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="fore" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tmall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tmall" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="fore" type="462c0819:PsiDirectoryNode" />
               <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -514,7 +541,7 @@
     <property name="SearchEverywhereHistoryKey" value="productSingleImages&#9;PSI&#9;JAVA://com.xl.tmall.pojo.Product#getProductSingleImages&#10;Entity&#9;PSI&#9;JAVA://javax.persistence.Entity" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555253338792" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555340595232" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -524,16 +551,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\tmall\src\main\resources\static" />
-      <recent name="G:\tmall\src\main\webapp" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\tmall\src\main\resources\templates\fore" />
       <recent name="G:\tmall\src\main\resources\templates\include\fore\register" />
       <recent name="G:\tmall\src\main\resources\templates\include\fore\login" />
       <recent name="G:\tmall\src\main\resources\templates\include\fore\search" />
       <recent name="G:\tmall\src\main\resources\templates\include\fore" />
-      <recent name="G:\tmall\src\main\resources\templates\admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\tmall\src\main\resources\static" />
+      <recent name="G:\tmall\src\main\webapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -560,6 +587,22 @@
       <option name="PACKAGE_NAME" value="com.xl.tmall" />
       <option name="MAIN_CLASS_NAME" value="com.xl.tmall.MyTest" />
       <option name="METHOD_NAME" value="run" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest.run2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tmall" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xl.tmall.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xl.tmall" />
+      <option name="MAIN_CLASS_NAME" value="com.xl.tmall.MyTest" />
+      <option name="METHOD_NAME" value="run2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -638,9 +681,11 @@
     <list>
       <item itemvalue="Spring Boot.TmallApplication" />
       <item itemvalue="JUnit.MyTest.run" />
+      <item itemvalue="JUnit.MyTest.run2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyTest.run2" />
         <item itemvalue="JUnit.MyTest.run" />
       </list>
     </recent_temporary>
@@ -670,6 +715,7 @@
       <workItem from="1555119113355" duration="19502000" />
       <workItem from="1555202936930" duration="6335000" />
       <workItem from="1555209323189" duration="33711000" />
+      <workItem from="1555297750051" duration="26004000" />
     </task>
     <servers />
   </component>
@@ -677,14 +723,29 @@
     <history-entry file="MyTest_run - 2019.04.13 at 22h 42m 25s.xml">
       <configuration name="MyTest.run" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MyTest_run2 - 2019.04.15 at 14h 37m 51s.xml">
+      <configuration name="MyTest.run2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyTest_run2 - 2019.04.15 at 14h 39m 32s.xml">
+      <configuration name="MyTest.run2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyTest_run2 - 2019.04.15 at 14h 40m 06s.xml">
+      <configuration name="MyTest.run2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyTest_run2 - 2019.04.15 at 14h 40m 34s.xml">
+      <configuration name="MyTest.run2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyTest_run2 - 2019.04.15 at 14h 49m 05s.xml">
+      <configuration name="MyTest.run2" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189495000" />
+    <option name="totallyTimeSpent" value="215499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3016086" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30563003" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -695,7 +756,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4858357" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48510638" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47517732" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -709,7 +770,7 @@
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="JRebel Console" order="14" side_tool="true" />
       <window_info anchor="bottom" id="JRebel Executor" order="15" />
-      <window_info anchor="bottom" id="Messages" order="16" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="16" weight="0.32765958" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -729,65 +790,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/registerSuccess.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/ProductDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="67" selection-start-line="13" selection-start-column="67" selection-end-line="13" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/PropertyValueServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="-234">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/ReviewService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ReviewServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="252">
           <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -795,158 +807,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/PropertyServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/CategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="32" column="65" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/CategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/OrderItem.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/config/CorsWebConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="20" column="27" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="27" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/login/modalLogin.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/AdminPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="-234">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderItemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
           <folding>
-            <element signature="n#style#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2201#2202#0" expanded="true" />
+            <element signature="e#2721#2722#0" expanded="true" />
+            <element signature="e#2748#2749#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/ProductImageService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderItemService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ProductImageServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/utils/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/product/productPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.5.RELEASE/spring-web-5.1.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="197" column="64" lean-forward="true" selection-start-line="197" selection-start-column="64" selection-end-line="197" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/buy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="64" lean-forward="true" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/product/imgAndInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="42" column="46" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/ProductImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/foreHeader.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="90" column="37" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="30" />
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -957,182 +855,308 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/buyPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="37" column="54" lean-forward="true" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForePageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="72" column="27" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="27" />
-          <folding>
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1020#1021#0" expanded="true" />
-            <element signature="e#1397#1398#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/deleteOrderItemModal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="84" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="62" lean-forward="true" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="29" column="65" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderItemDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderItemServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="91" column="65" selection-start-line="91" selection-start-column="65" selection-end-line="91" selection-end-column="65" />
-          <folding>
-            <element signature="e#2135#2136#0" expanded="true" />
-            <element signature="e#2201#2202#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/cartPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="220" column="48" lean-forward="true" selection-start-line="220" selection-start-column="48" selection-end-line="220" selection-end-column="48" />
+        <state relative-caret-position="-1652">
+          <caret line="144" column="36" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#dvi#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.5.RELEASE/spring-webmvc-5.1.5.RELEASE-sources.jar!/org/springframework/web/servlet/HandlerInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/payed.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+        <state relative-caret-position="90">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/interceptor/LoginInterceptor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/register/registerSuccessPage.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/login/loginPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="886">
-          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+        <state relative-caret-position="378">
+          <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/login/modalLogin.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/register/registerPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/registerSuccess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/listOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1026" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/xl/tmall/MyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="51" lean-forward="true" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/OrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/buyPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="108" column="75" lean-forward="true" selection-start-line="106" selection-start-column="28" selection-end-line="108" selection-end-column="75" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/aliPay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/aliPayPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/deleteOrderModal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="84" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/payedPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="40" column="66" selection-start-line="40" selection-start-column="66" selection-end-line="40" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/buy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/site/confirmOrderTmall.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/site/confirmPayFlow.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/site/buyflow.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/site/orderFinish.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/OrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="100" column="39" selection-start-line="100" selection-start-column="39" selection-end-line="100" selection-end-column="39" />
+          <folding>
+            <element signature="e#2852#2853#0" expanded="true" />
+            <element signature="e#2889#2890#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/OrderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/site/reviewLight.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/foreHeader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="94" column="36" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/dao/ReviewDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/service/ReviewService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/bought.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="49" lean-forward="true" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="37" column="28" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/boughtPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-817">
+          <caret line="80" column="83" lean-forward="true" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
+          <folding>
+            <element signature="e#3280#3286#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/confirm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/confirmPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="27" column="51" lean-forward="true" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/confirmed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForePageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="102" column="30" lean-forward="true" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+          <folding>
+            <element signature="e#983#984#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+            <element signature="e#1629#1630#0" expanded="true" />
+            <element signature="e#1813#1814#0" expanded="true" />
+            <element signature="e#1837#1838#0" expanded="true" />
+            <element signature="e#1928#1929#0" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#2040#2041#0" expanded="true" />
+            <element signature="e#2064#2065#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/confirmedPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fore/review.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/cart/reviewPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/controller/ForeRestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-533">
-          <caret line="172" lean-forward="true" selection-start-line="172" selection-end-line="172" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5174#5175#0" expanded="true" />
-            <element signature="e#5227#5228#0" expanded="true" />
-            <element signature="e#7621#7622#0" expanded="true" />
-            <element signature="e#7652#7653#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/config/WebMvcConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="26" column="75" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/interceptor/OtherInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="48" column="49" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="49" />
+        <state relative-caret-position="234">
+          <caret line="332" column="68" lean-forward="true" selection-start-line="332" selection-start-column="68" selection-end-line="332" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/foreTop.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/pojo/Review.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        <state relative-caret-position="306">
+          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/search/simpleSearch.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xl/tmall/serviceImpl/ReviewServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/foreSearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/category/productsOfCategory.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/search/productsBySearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="92" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="92" />
+        <state relative-caret-position="234">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/category/categoryPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/search/searchPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/include/fore/category/sortBar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324" />
       </provider>
     </entry>
   </component>

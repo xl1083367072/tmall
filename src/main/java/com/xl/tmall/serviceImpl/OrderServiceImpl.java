@@ -3,6 +3,7 @@ package com.xl.tmall.serviceImpl;
 import com.xl.tmall.dao.OrderDao;
 import com.xl.tmall.pojo.Order;
 import com.xl.tmall.pojo.OrderItem;
+import com.xl.tmall.pojo.User;
 import com.xl.tmall.service.OrderItemService;
 import com.xl.tmall.service.OrderService;
 import com.xl.tmall.utils.PageNavigator;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -56,5 +59,45 @@ public class OrderServiceImpl implements OrderService {
         for (Order order:orders){
             removeOrderFromOrderItem(order);
         }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED,rollbackForClassName = "Exception")
+    @Override
+    public float save(Order order, List<OrderItem> orderItems) {
+        float totalPrice = 0;
+        orderDao.save(order);
+        for (OrderItem orderItem:orderItems){
+            orderItem.setOrder(order);
+            orderItemService.update(orderItem);
+            totalPrice += orderItem.getNumber()*orderItem.getProduct().getPromotePrice();
+        }
+        return totalPrice;
+    }
+
+    @Override
+    public List<Order> findWithoutDelete(User user) {
+        return orderDao.findByUserAndStatusNotOrderByIdDesc(user,OrderService.DELETE);
+    }
+
+    @Override
+    public List<Order> findNotDeleteFillOrderIetms(User user) {
+        List<Order> orders = findWithoutDelete(user);
+        orderItemService.fill(orders);
+        return orders;
+    }
+
+    @Override
+    public void delete(int id) {
+        orderDao.deleteById(id);
+    }
+
+    @Override
+    public void caculateTotalPrice(Order order) {
+        float totalPrice = 0;
+        List<OrderItem> orderItems = orderItemService.findByOrder(order);
+        for (OrderItem orderItem:orderItems){
+            totalPrice += orderItem.getNumber()*orderItem.getProduct().getPromotePrice();
+        }
+        order.setTotalPrice(totalPrice);
     }
 }

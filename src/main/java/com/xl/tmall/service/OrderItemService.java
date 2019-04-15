@@ -29,4 +29,6 @@ public interface OrderItemService {
 
     OrderItem findByUserAndAndProduct(User user,Product product);
 
+    void delete(int id);
+
 }

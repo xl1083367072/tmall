@@ -1,0 +1,29 @@
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var oid = getUrl("oid");
+            var data = {
+                url:"foreOrderConfirm"
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    this.load();
+                },
+                methods:{
+                    load:function () {
+                        var url = this.url+"?oid="+oid;
+                        axios.get(url);
+                    }
+                }
+            })
+        })
+    </script>
+    <div class="orderFinishDiv">
+        <div class="orderFinishTextDiv">
+            <img src="img/site/orderFinish.png">
+            <span>交易已经成功，卖家将收到您的货款。</span>
+        </div>
+    </div>
+</div>

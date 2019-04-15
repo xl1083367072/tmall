@@ -4,11 +4,13 @@ import com.xl.tmall.compartor.*;
 import com.xl.tmall.pojo.*;
 import com.xl.tmall.service.*;
 import com.xl.tmall.utils.Result;
+import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -28,6 +30,8 @@ public class ForeRestController {
     PropertyValueService propertyValueService;
     @Autowired
     OrderItemService orderItemService;
+    @Autowired
+    OrderService orderService;
 
     @GetMapping("/forehome")
     public List<Category> forehome(){
@@ -171,10 +175,10 @@ public class ForeRestController {
         return oiid;
     }
 
-//    立即购买
+//    立即购买和结算
     @GetMapping("/foreBuy")
     public Result foreBuy(String[] oiid,HttpSession session){
-//        立即购买有一个订单项,购物车中购买有多个订单项,所以统一用数组来接收
+//        立即购买有一个订单项,购物车中结算有多个订单项,所以统一用数组来接收
         List<OrderItem> orderItems = new ArrayList<>();
 //        该订单商品总额
         int totalPrice = 0;
@@ -185,6 +189,7 @@ public class ForeRestController {
             totalPrice += orderItem.getNumber()*orderItem.getProduct().getPromotePrice();
             orderItems.add(orderItem);
         }
+        session.setAttribute("orderItems",orderItems);
 //        给订单商品设置图片
         productImageService.setFirstImage2OrderItems(orderItems);
         Map<String,Object> map = new HashMap<>();
@@ -211,7 +216,12 @@ public class ForeRestController {
 
 //    删除订单项
     @GetMapping("/foreDeleteOrderItem")
-    public Result foreDeleteOrderItem(int oiid){
+    public Result foreDeleteOrderItem(int oiid,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if(user==null){
+            return Result.fail("未登录");
+        }
+        orderItemService.delete(oiid);
         return Result.success();
     }
 
@@ -229,4 +239,122 @@ public class ForeRestController {
         orderItemService.update(orderItem);
         return Result.success();
     }
+
+//    提交订单
+    @PostMapping("/foreOrder")
+    public Result foreOrder(@RequestBody Order order,HttpSession session){
+        User user = (User) session.getAttribute("user");
+//        生成订单号
+        String orderCode = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date())+ RandomUtils.nextInt(11111);
+        order.setOrderCode(orderCode);
+        order.setCreateDate(new Date());
+        order.setUser(user);
+//        待付款状态
+        order.setStatus(OrderService.WAITPAY);
+        List<OrderItem> orderItems = (List<OrderItem>) session.getAttribute("orderItems");
+        float totalPrice = orderService.save(order, orderItems);
+        Map<String,Object> map = new HashMap<>();
+        map.put("totalPrice",totalPrice);
+        map.put("oid",order.getId());
+        return Result.success(map);
+    }
+
+//    付款成功页显示数据
+    @GetMapping("/forePayed")
+    public Result forePayed(int oid){
+        Order order = orderService.findById(oid);
+        order.setStatus(OrderService.WAITDELIVERY);
+        order.setPayDate(new Date());
+        orderService.update(order);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_YEAR,7);
+        Map<String,Object> map = new HashMap<>();
+        map.put("order",order);
+        map.put("date",calendar.getTime());
+        return Result.success(map);
+    }
+
+//    订单页显示数据
+    @GetMapping("/foreBought")
+    public List<Order> foreBought(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        List<Order> orders = orderService.findNotDeleteFillOrderIetms(user);
+        orderService.removeOrderFromOrderItem(orders);
+        return orders;
+    }
+
+//    订单页删除订单
+    @GetMapping("/foreDeleteOrder")
+    public Result foreDeleteOrder(int oid){
+        Order order = orderService.findById(oid);
+//        修改订单状态为已删除状态
+        order.setStatus(OrderService.DELETE);
+        orderService.update(order);
+        return Result.success();
+    }
+
+//    确认收货页显示数据
+    @GetMapping("/foreConfirm")
+    public Order foreConfirm(int oid){
+        Order order = orderService.findById(oid);
+//        填充订单项
+        orderItemService.fill(order);
+        orderService.removeOrderFromOrderItem(order);
+//        计算订单总额
+        orderService.caculateTotalPrice(order);
+        return order;
+    }
+
+//    收货成功页面
+    @GetMapping("/foreOrderConfirm")
+    public Result foreOrderConfirm(int oid){
+        Order order = orderService.findById(oid);
+//        设置确认收货日期
+        order.setConfirmDate(new Date());
+//        修改订单状态为待评价状态
+        order.setStatus(OrderService.WAITREVIEW);
+        orderService.update(order);
+        return Result.success();
+    }
+
+//    评论页显示数据
+    @GetMapping("/foreReview")
+    public Result foreReview(int oid){
+        Order order = orderService.findById(oid);
+//        给订单填充订单项
+        orderItemService.fill(order);
+        orderService.removeOrderFromOrderItem(order);
+//        查找订单项第一个商品
+        Product product = order.getOrderItems().get(0).getProduct();
+//        设置商品的销量和评价数
+        productService.setSaleAndReviewCount(product);
+//        查询所有该商品下的评论
+        List<Review> reviews = reviewService.findByProduct(product);
+        Map<String,Object> map = new HashMap<>();
+        map.put("order",order);
+        map.put("p",product);
+        map.put("reviews",reviews);
+        return Result.success(map);
+    }
+
+//    提交评论
+    @GetMapping("/foreReviewCommit")
+    public Result foreReviewCommit(int pid,int oid,String content,HttpSession session){
+        content = HtmlUtils.htmlEscape(content);
+//        取评论的用户
+        User user = (User) session.getAttribute("user");
+//        修改订单状态为已完成
+        Order order = orderService.findById(oid);
+        order.setStatus(OrderService.FINISH);
+//        添加评论
+        Review review = new Review();
+        review.setUser(user);
+        review.setContent(content);
+        review.setCreateDate(new Date());
+        review.setProduct(productService.findById(pid));
+        reviewService.save(review);
+        return Result.success();
+    }
+
 }

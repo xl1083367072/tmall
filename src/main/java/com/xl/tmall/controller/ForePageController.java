@@ -73,4 +73,40 @@ public class ForePageController {
         return "fore/cart";
     }
 
+//    付款页面
+    @GetMapping("/aliPay")
+    public String pay(){
+        return "fore/aliPay";
+    }
+
+//    付款成功页面
+    @GetMapping("/payed")
+    public String payed(){
+        return "fore/payed";
+    }
+
+//    订单页面
+    @GetMapping("/bought")
+    public String bought(){
+        return "fore/bought";
+    }
+
+//    确认收货页面
+    @GetMapping("/confirm")
+    public String confirmPay(){
+        return "fore/confirm";
+    }
+
+//    收获成功页面
+    @GetMapping("/orderConfirmed")
+    public String orderConfirm(){
+        return "fore/confirmed";
+    }
+
+//    评价页面
+    @GetMapping("/review")
+    public String review(){
+        return "fore/review";
+    }
+
 }

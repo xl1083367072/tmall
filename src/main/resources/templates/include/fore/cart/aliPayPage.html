@@ -1,0 +1,36 @@
+<div th:fragment="html">
+    <script>
+        $(function () {
+            var oid = getUrl("oid");
+            var totalPrice = getUrl("totalPrice");
+            var data = {
+                oid:'',
+                totalPrice:''
+            };
+            var vue = new Vue({
+                el:"#workingArea",
+                data:data,
+                mounted:function () {
+                    this.oid = oid;
+                    this.totalPrice = totalPrice;
+                }
+            });
+        })
+    </script>
+    <div class="aliPayPageDiv">
+        <div class="aliPayPageLogo">
+            <img src="img/site/simpleLogo.png" class="pull-left">
+            <div style="clear:both"></div>
+        </div>
+        <div>
+            <span class="confirmMoneyText">扫一扫付款(元)</span>
+            <span class="confirmMoney">￥{{totalPrice | formatMoneyFilter}}</span>
+        </div>
+        <div>
+            <img src="img/site/alipay2wei.png" class="aliPayImg">
+        </div>
+        <div>
+            <a :href="'payed?oid='+oid+'&totalPrice='+totalPrice"><button class="confirmPay">确认支付</button></a>
+        </div>
+    </div>
+</div>

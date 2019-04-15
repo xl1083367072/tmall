@@ -91,4 +91,9 @@ public class OrderItemServiceImpl implements OrderItemService {
     public OrderItem findByUserAndAndProduct(User user, Product product) {
         return orderItemDao.findByUserAndAndProduct(user,product);
     }
+
+    @Override
+    public void delete(int id) {
+        orderItemDao.deleteById(id);
+    }
 }

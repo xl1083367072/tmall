@@ -50,8 +50,8 @@
                     var url = "foreDeleteOrderItem?oiid=" + deleteOrderItemId;
                     axios.get(url).then(function (response) {
                         if (response.data.code == 0) {
-                            //将对应订单项隐藏
-                            $("tr.cartProductItemTR[oiid=" + deleteOrderItemId + "]").hide();
+                            //将对应订单项删除
+                            $("tr.cartProductItemTR[oiid=" + deleteOrderItemId + "]").remove();
                         } else {
                             location.href = "login";
                         }
@@ -139,9 +139,9 @@
             });
             //给结算按钮加单击事件
             $("button.createOrderButton").click(function () {
+                var params = "";
                 //结算时,取每个选中的商品id组成数组提交
                 $("img.cartProductItemIfSelected").each(function () {
-                    var params = "";
                     if ($(this).attr("selectit") == "true") {
                         var oiid = $(this).attr("oiid");
                         params += "&oiid=" + oiid;

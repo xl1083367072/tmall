@@ -1,4 +1,4 @@
-<!--注册成功页面-->
+<!--订单页面-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="include/fore/foreHeader::html"></head>
@@ -6,7 +6,8 @@
 <div id="workingArea">
     <div th:replace="include/fore/foreTop::html"></div>
     <div th:replace="include/fore/search/simpleSearch::html"></div>
-    <div th:replace="include/fore/register/registerSuccessPage::html"></div>
+    <div th:replace="include/fore/cart/boughtPage::html"></div>
+    <div th:replace="include/fore/cart/deleteOrderModal::html"></div>
     <div th:replace="include/fore/foreFooter::html"></div>
 </div>
 </body>
