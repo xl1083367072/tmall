@@ -1,15 +1,22 @@
 package com.xl.tmall.serviceImpl;
 
 import com.xl.tmall.dao.ProductDao;
+import com.xl.tmall.es.ProductEsDao;
 import com.xl.tmall.pojo.Category;
 import com.xl.tmall.pojo.Product;
 import com.xl.tmall.service.*;
 import com.xl.tmall.utils.PageNavigator;
+import org.elasticsearch.common.lucene.search.function.FunctionScoreQuery;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
+import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +38,8 @@ public class ProductServiceImpl implements ProductService {
     OrderItemService orderItemService;
     @Autowired
     ReviewService reviewService;
+    @Autowired
+    ProductEsDao productEsDao;
 
     @Override
     public PageNavigator<Product> findAll(int cid, int start, int size, int navigatePages) {
@@ -49,6 +58,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void save(Product product) {
         productDao.save(product);
+//        同时更新es服务器中数据
+        productEsDao.save(product);
     }
 
     @Transactional
@@ -58,11 +69,13 @@ public class ProductServiceImpl implements ProductService {
         product.setId(id);
         propertyValueService.deleteByProductOrProperty(product,null);
         productDao.deleteById(id);
+        productEsDao.deleteById(id);
     }
 
     @Override
     public void update(Product product) {
         productDao.save(product);
+        productEsDao.save(product);
     }
 
 //    为分类填充商品内容和商品图片
@@ -124,11 +137,41 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
-    @Override
+    /*@Override
     public List<Product> findByKeyword(String keyword, int start, int size) {
         Sort sort = new Sort(Sort.Direction.DESC,"id");
         Pageable pageable = new PageRequest(start,size,sort);
         List<Product> products = productDao.findByNameLike("%" + keyword + "%", pageable);
         return products;
+    }*/
+
+    @Override
+    public List<Product> findByKeyword(String keyword, int start, int size) {
+        initDatabase2Es();
+        FunctionScoreQueryBuilder queryBuilder = QueryBuilders.functionScoreQuery(
+                QueryBuilders.matchPhrasePrefixQuery("name",keyword),
+                ScoreFunctionBuilders.weightFactorFunction(100))
+                .scoreMode(FunctionScoreQuery.ScoreMode.SUM)
+                .setMinScore(10);              //关键字查询匹配器
+        Sort sort = new Sort(Sort.Direction.DESC,"id");
+        Pageable pageable = new PageRequest(start,size,sort);
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withPageable(pageable)
+                .withQuery(queryBuilder).build();
+        Page<Product> page = productEsDao.search(searchQuery);
+        return page.getContent();
+    }
+
+    //    初始化数据库数据到es服务器中
+    private void initDatabase2Es(){
+        Pageable pageable = new PageRequest(0,5);
+//        从es服务器中查数据
+        Page<Product> page = productEsDao.findAll(pageable);
+//        若es中没有该数据,则从数据库中查找所有数据添加到es服务器中
+        if(page.getContent().isEmpty()){
+            List<Product> products = productDao.findAll();
+            for (Product product:products){
+                productEsDao.save(product);
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 package com.xl.tmall.controller;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -39,7 +41,10 @@ public class ForePageController {
 //    登出
     @GetMapping("/forelogout")
     public String forelogout(HttpSession session){
-        session.removeAttribute("user");
+        Subject subject = SecurityUtils.getSubject();
+        if(subject.isAuthenticated()){
+            subject.logout();
+        }
         return "fore/home";
     }
 

@@ -5,6 +5,12 @@ import com.xl.tmall.pojo.*;
 import com.xl.tmall.service.*;
 import com.xl.tmall.utils.Result;
 import org.apache.commons.lang.math.RandomUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
@@ -51,6 +57,11 @@ public class ForeRestController {
         boolean exist = userService.isExist(user.getName());
         if(exist)
             return Result.fail("用户名已被占用");
+//        散列算法对密码加密
+        String salt = new SecureRandomNumberGenerator().nextBytes().toString();
+        String password = new SimpleHash("md5", user.getPassword(), salt, 2).toString();
+        user.setPassword(password);
+        user.setSalt(salt);
         userService.save(user);
         return Result.success();
     }
@@ -58,12 +69,19 @@ public class ForeRestController {
     @PostMapping("/forelogin")
     public Result login(@RequestBody User user, HttpSession session){
         String name = user.getName();
-        name = HtmlUtils.htmlEscape(name);
-        User u = userService.findByNameAndPassword(name, user.getPassword());
-        if(u==null)
-            return Result.fail("账号或密码错误");
-        session.setAttribute("user",u);
-        return Result.success();
+        String password = user.getPassword();
+//        shiro登录验证
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(name,password);
+        try {
+            subject.login(token);
+            User u = userService.findByName(name);
+            session.setAttribute("user",u);
+            return Result.success();
+        }catch (AuthenticationException e){
+            e.printStackTrace();
+            return Result.fail("用户名或密码错误");
+        }
     }
 
 //  返回商品详情信息
@@ -90,9 +108,10 @@ public class ForeRestController {
 //    检查当前是否登录,用于模态登录
     @GetMapping("/foreCheckLogin")
     public Result checkLogin(HttpSession session){
-        User user = (User) session.getAttribute("user");
-        if(user!=null)
+        Subject subject = SecurityUtils.getSubject();
+        if(subject.isAuthenticated()){
             return Result.success();
+        }
         return Result.fail("未登录状态");
     }
 

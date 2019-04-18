@@ -1,7 +1,8 @@
 package com.xl.tmall.interceptor;
 
-import com.xl.tmall.pojo.User;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,9 +46,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         url = StringUtils.remove(url,contextPath+"/");
 //        比对请求的url和需要登录的url数组有没有匹配的
         if(compare(url,requireAuthPages)){
-            User user = (User) session.getAttribute("user");
-//            若没有登录,则跳转到登录页面
-            if(user==null){
+            Subject subject = SecurityUtils.getSubject();
+            if(!subject.isAuthenticated()){
                 response.sendRedirect("login");
                 return false;
             }
