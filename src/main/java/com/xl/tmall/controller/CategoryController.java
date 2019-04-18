@@ -36,7 +36,7 @@ public class CategoryController {
     }
 
     public void saveOrUpdateImage(Category category, MultipartFile file, HttpServletRequest request){
-        File filepath = new File(request.getServletContext().getRealPath("tmall/img/category"));
+        File filepath = new File(request.getServletContext().getRealPath("img/category"));
         File path = new File(filepath,category.getId()+".jpg");
         if(!path.getParentFile().exists()){
             path.getParentFile().mkdirs();
@@ -55,7 +55,7 @@ public class CategoryController {
     public String delete(@PathVariable("id")int id,HttpServletRequest request){
         categoryService.delete(id);
 //        删除分类图片
-        File filepath = new File(request.getServletContext().getRealPath("tmall/img/category"));
+        File filepath = new File(request.getServletContext().getRealPath("/img/category"));
         File file = new File(filepath,id+".jpg");
         file.delete();
         return null;

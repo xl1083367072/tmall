@@ -20,7 +20,6 @@ G:\ideaProject\tmall\src\main\java\com\xl\tmall\pojo\Category.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\dao\UserDao.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\controller\CategoryController.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\pojo\Order.java
-G:\ideaProject\tmall\src\main\java\com\xl\tmall\utils\PortUtil.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\dao\PropertyValueDao.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\service\PropertyValueService.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\serviceImpl\PropertyServiceImpl.java
@@ -44,7 +43,6 @@ G:\ideaProject\tmall\src\main\java\com\xl\tmall\utils\PageNavigator.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\utils\ImageUtil.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\pojo\Property.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\controller\ProductController.java
-G:\ideaProject\tmall\src\main\java\com\xl\tmall\config\RedisConfig.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\pojo\PropertyValue.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\compartor\ProductSaleCompartor.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\controller\ProductImageController.java
@@ -62,4 +60,3 @@ G:\ideaProject\tmall\src\main\java\com\xl\tmall\dao\PropertyDao.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\dao\OrderItemDao.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\dao\ReviewDao.java
 G:\ideaProject\tmall\src\main\java\com\xl\tmall\serviceImpl\ProductServiceImpl.java
-G:\ideaProject\tmall\src\main\java\com\xl\tmall\es\ProductEsDao.java

@@ -48,7 +48,7 @@ public class ProductImageController {
 //        先保存商品图片信息
         productImageService.save(productImage);
 //        构建商品图片保存路径
-        String filename = "tmall/img/";
+        String filename = "img/";
         if(productImageService.SINGLETYPE.equals(productImage.getType()))
             filename += "productSingle";
         else
@@ -67,8 +67,8 @@ public class ProductImageController {
             e.printStackTrace();
         }
         if(productImageService.SINGLETYPE.equals(productImage.getType())){
-            String middleImage = request.getServletContext().getRealPath("tmall/img/productSingle_middle");
-            String smallImage = request.getServletContext().getRealPath("tmall/img/productSingle_small");
+            String middleImage = request.getServletContext().getRealPath("img/productSingle_middle");
+            String smallImage = request.getServletContext().getRealPath("img/productSingle_small");
             File middleFile = new File(middleImage,filename);
             File smallFile = new File(smallImage,filename);
             if(!middleFile.getParentFile().exists())
@@ -87,7 +87,7 @@ public class ProductImageController {
 //        删除掉图片信息
         productImageService.delete(id);
 //        删除图片
-        String filename = "tmall/img/";
+        String filename = "img/";
         if(productImageService.SINGLETYPE.equals(productImage.getType()))
             filename += "productSingle";
         else
@@ -99,8 +99,8 @@ public class ProductImageController {
         path.delete();
         if(productImageService.equals(productImage.getType())){
 //            删除掉缩略图
-            String middleImage = request.getServletContext().getRealPath("tmall/img/productSingle_middle");
-            String smallImage = request.getServletContext().getRealPath("tmall/img/productSingle_small");
+            String middleImage = request.getServletContext().getRealPath("img/productSingle_middle");
+            String smallImage = request.getServletContext().getRealPath("img/productSingle_small");
             File middleFile = new File(middleImage,filename);
             File smallFile = new File(smallImage,filename);
             if(middleFile.exists())

@@ -58,7 +58,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void save(Product product) {
         productDao.save(product);
-//        同时更新es服务器中数据
+        //        同时更新es服务器中数据
         productEsDao.save(product);
     }
 
@@ -174,4 +174,5 @@ public class ProductServiceImpl implements ProductService {
             }
         }
     }
+
 }
